@@ -1,85 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Films</title>
-    <link rel="stylesheet" href="/styles/infoStyles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <%- include('./partials/head') %> 
 </head>
 <body>
-    <header class="header">
-        <div class="wrapper">
-            <p class="header-title">
-                <span id="firstName">Edgar</span>
-                <span id="lastName">Wight</span>
-            </p>
-
-            <nav>
-                <ul class="header-links-container">
-                    <li class="header-links">
-                        <a class="nav-link" href="/">Films</a>
-                    </li>
-                    <li class="header-links">
-                        <a class="nav-link" href="/television">Television</a>
-                    </li>
-                    <li class="header-links">
-                        <a class="nav-link" href="/biography">Biography</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
+    
+    <%- include('./partials/header') %> 
+    
     <main class="content">
-        <h1>Films <span>Directed or written by</span></h1>
-        <div class="film-scroll">
-            <% for(let film of films) { %> 
-                <div class="film">
-                    <div class="img">
-                        <div class="poster">
-                            <img class="image" src="<%= film.poster %> " alt="">
-                        </div>
+        <h1>Films</h1>
+        <h2 >Directed and Wrote</h2>
+        <div class="entries-container">
+            <% for(let film of films) { %>
+                <% if(film.directed == true) { %> 
+                    <div class="entries">
+                        <a href="/films/<%=film.id%>">
+                            <img src="<%=film.poster%>" alt="">
+                        </a>
                     </div>
+                    <% } %> 
+            <% } %>  
+        </div>
 
-                    <div class="info">
-                        <div class="tabs">
-                            <div class="about">
-                                <h3 ><%= film.title %> </h3>
-                                <p><%= film.year %> </p>
-                                <p><strong>Genrer: </strong><%= film.genrer %> </p>
-                                <p><strong>Duration: </strong><%= film.duration %> </p>
-                                <p><strong>Synopsis: </strong><%= film.synopsis %> </p>
-                                <h3>Trivia</h3>
-                                <% for(trivia of film.trivia) { %> 
-                                &#8227; <%= trivia %> 
-                                
-                                <hr>
-                                <% } %> 
-                            </div>
-
-                            <!-- <div class="trivia">
-                                <h3>Trivia</h3>
-                                <% for(trivia of film.trivia) %> 
-                                <%= trivia %> 
-                            </div> -->
-
-                            <!-- <div class="film-menu">
-                                <button onclick="showAbout()" class="btn" id="button-about" >About</button>
-                                <button onclick="showTrivia()" class="btn" id="button-trivia" >Trivia</button>
-                            </div> -->
-                        </div>
+        <h2>Co-Wrote</h2>
+        <div class="entries-container">
+            <% for(let film of films) { %>
+                <% if(film.directed == false) { %> 
+                    <div class="entries">
+                        <a href="/films/<%=film.id%>">
+                            <img src="<%=film.poster%>" alt="">
+                        </a>
                     </div>
-                </div>
-            <% } %> 
+                    <% } %> 
+            <% } %>  
         </div>
     </main>
 
-    <script src="/scripts/infoScripts.js"></script>
+    <!-- <script src="/scripts/infoScripts.js"></script> -->
 </body>
 </html>

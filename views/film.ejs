@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/styles/filmStyle.css">
+
+</head>
+<body>
+    
+    <%- include('./partials/header') %> 
+    
+    <div class="container">
+        <div class="top-content">
+            <div class="image-space">
+                <img src="<%= filmObject.poster %> " alt="">
+            </div>
+            <div class="info-space">
+                <p class="title"><%= filmObject.title %></p>
+                <p class="year"><%= filmObject.year %> | <%= filmObject.duration %></p>
+                <p class="genrer"><%= filmObject.genrer %></p>
+                <p class="synopsis"><%= filmObject.synopsis %></p>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <p class="trivia-title">Trivia</p>
+            
+            <% for(trivia of filmObject.trivia) { %> 
+                <div class="trivia-entry">
+                    &#8227; <%= trivia %> 
+                </div>
+            <% } %> 
+        </div>
+    </div>
+
+</body>
+</html>

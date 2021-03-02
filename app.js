@@ -4,6 +4,7 @@ const port = 80
 const path = require('path')
 
 const films = require('./seeds/films')
+const series = require('./seeds/series')
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './views'))
@@ -19,8 +20,36 @@ app.get('/', (req, res) => {
     res.render('films', { films })
 })
 
+app.get('/films/:id', (req, res) => {
+
+    const id = req.params.id
+    let filmObject = {};
+    for (let film of films) {
+        if (film.id == id) {
+            filmObject = film
+            break
+        }
+    }
+
+    res.render('film', { filmObject })
+})
+
 app.get('/television', (req, res) => {
-    res.render('television')
+    res.render('television', { series })
+})
+
+app.get('/series/:id', (req, res) => {
+
+    const id = req.params.id
+    let serie = {};
+    for (let tvserie of series) {
+        if (tvserie.id == id) {
+            serie = tvserie
+            break
+        }
+    }
+
+    res.render('serie', { serie })
 })
 
 app.get('/biography', (req, res) => {

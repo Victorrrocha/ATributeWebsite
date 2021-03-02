@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biography</title>
+    <%- include('./partials/head') %> 
+    <link rel="stylesheet" href="/styles/bioStyle.css">
 </head>
 <body>
-    <h1>Biography</h1>
+    <%- include('./partials/header') %> 
+
+    <div class="container">
+        <div class="img-cropper">
+            <img class="director" src="/images/edgar-wright.jpg" alt="">
+        </div>
+
+        <div class="text-content">
+            <p>
+                Edgar Howard Wright was born on 18 April 1974 in Poole, Dorset and grew up predominantly in Wells in Somerset. He attended The Blue School, Wells from 1985 to 1992, and is honoured by a plaque at the school. Throughout the late 1980s and early 1990s, he directed many short films, first on a Super-8 camera that was a gift from a family member and later on a Video-8 camcorder that he won in a competition on the television programme Going Live. These films were mostly comedic pastiches of popular genres, such as the super hero-inspired Carbolic Soap and Dirty Harry tribute Dead Right (which was featured on the DVD release of Hot Fuzz).
+            </p>
+            <p>
+                From 1992 to 1994, Wright attended the Bournemouth and Poole College of Art and Design (now Arts University Bournemouth) and received an ND in Audio-Visual Design.[3] In June 2018, Arts University Bournemouth awarded Wright an Honorary Fellowship alongside graphic designer Margaret Calvert, costume designer Jenny Beavan and dancer Darcey Bussell. On receiving the award Wright said "I'm thrilled to accept my honorary fellowship from AUB, or as I knew it back in 1992, the Bournemouth and Poole College of Art and Design. I still think very fondly of my time spent there.
+            </p>
+        </div>
+    </div>
+
 </body>
 </html>

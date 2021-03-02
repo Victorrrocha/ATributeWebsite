@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Television</title>
+    <%- include('./partials/head') %> 
 </head>
 <body>
-    <h1>Television</h1>
+    
+    <%- include('./partials/header') %> 
+    
+    <main class="content">
+        <h1>Series</h1>
+        <h2 >Created</h2>
+        <div class="entries-container">
+            <% for(let serie of series) { %>
+                <div class="entries">
+                    <a href="/series/<%=serie.id%>">
+                        <img src="<%=serie.poster%>" alt="">
+                    </a>
+                </div>
+            <% } %>  
+        </div>
+        </div>
+    </main>
 
+    <!-- <script src="/scripts/infoScripts.js"></script> -->
 </body>
 </html>
